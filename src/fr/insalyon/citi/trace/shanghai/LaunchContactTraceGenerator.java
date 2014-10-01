@@ -32,7 +32,7 @@ public class LaunchContactTraceGenerator {
         System.out.println("Mobility Trace loading");
         System.out.println("----------------------");
         long start = System.currentTimeMillis();
-        Trace trace = Trace.fromDirectory(new File("/Users/flemouel/Documents/Work/Research/MCF_INSA/DYNAMID/Development/shanghai-trace/tests/shanghai-taxi-070218-example"));
+        Trace trace = Trace.fromDirectory(new File("./tests/shanghai-taxi-070218-example"));
         long stop = System.currentTimeMillis();
         System.out.println("Trace - loading: " + (stop - start) + "ms");
         System.out.println("-------------");
@@ -54,7 +54,7 @@ public class LaunchContactTraceGenerator {
         System.out.println("Contact Trace saving");
         System.out.println("--------------------");
         start = System.currentTimeMillis();
-        trace.dumpContactTrace(new File("/Users/flemouel/Documents/Work/Research/MCF_INSA/DYNAMID/Development/shanghai-trace/tests/shanghai-taxi-070218-contacts-example"));
+        trace.dumpContactTrace(new File("./tests/shanghai-taxi-070218-contacts-example"));
         stop = System.currentTimeMillis();
         System.out.println("Trace - saving: " + (stop - start) + "ms");
     }
