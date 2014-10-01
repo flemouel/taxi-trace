@@ -12,9 +12,22 @@ Extraction of a tiny part of the Shanghai taxi trace
 
     java fr.insalyon.citi.trace.shanghai.LaunchContactTraceGenerator ./tests/shanghai-taxi-070218-example ./tests/shanghai-taxi-070218-contacts-example
 
+## Contact parameters
+
+The contact parameters can can customized in `Trace` class
+
+    Trace.DISTANCE_RANGE = 250; // meters
+    Trace.TIME_RANGE = 30; // seconds
+
+Here, a contact exists if two taxis are in 250 meters range within the last 30s.
+
 ## Customizing
 
-The distance between two GPS coordinates can be computed in `Coordinate`class
+For long running execution, a progress bar can be displayed in `Trace` class.
+
+    Trace.VERBOSE = true; //default
+
+The distance between two GPS coordinates can be computed in `Coordinate` class
 according to three metrics:
 
     public double distance(Coordinate coordinate) {
@@ -23,10 +36,19 @@ according to three metrics:
 
     // Accuracy: -, Efficiency: ~, Order magnitude: 1
     public double distanceGeometric(Coordinate coordinate);
+
     // Accuracy: +, Efficiency: +, Order magnitude: 0.5    
     public double distanceHaversine(Coordinate coordinate);
+
     // Accuracy: ++, Efficiency: --, Order magnitude: 2
     public double distanceVincenty (Coordinate coordinate);
+
+The contact trace computation can be modified in `Trace` class to be mono-thread or multi-thread
+
+    public void generate() {
+        generateMultiThread();
+        // generateSingleThread();
+    }
 
 ## Contributors
 
