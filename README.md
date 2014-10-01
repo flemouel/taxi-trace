@@ -12,6 +12,22 @@ Extraction of a tiny part of the Shanghai taxi trace
 
     java fr.insalyon.citi.trace.shanghai.LaunchContactTraceGenerator ./tests/shanghai-taxi-070218-example ./tests/shanghai-taxi-070218-contacts-example
 
+## Customizing
+
+The distance between two GPS coordinates can be computed in `Coordinate`class
+according to three metrics:
+
+    public double distance(Coordinate coordinate) {
+        return distanceHaversine(coordinate);
+    }
+
+    // Accuracy: -, Efficiency: ~, Order magnitude: 1
+    public double distanceGeometric(Coordinate coordinate);
+    // Accuracy: +, Efficiency: +, Order magnitude: 0.5    
+    public double distanceHaversine(Coordinate coordinate);
+    // Accuracy: ++, Efficiency: --, Order magnitude: 2
+    public double distanceVincenty (Coordinate coordinate);
+
 ## Contributors
 
 This project is being developed as part of the research activities of the
@@ -23,7 +39,7 @@ the [CoopIS Lab](http://coopis.sjtu.edu.cn:8080/cisg/) & [Network Lab](http://ww
 [SEIEE](http://english.seiee.sjtu.edu.cn) at
 [SJTU](http://en.sjtu.edu.cn).
 
-Frédéric Le Mouël [@flemouel](https://twitter.com/flemouel), Guanghsuo Chen
+Frédéric Le Mouël ([@flemouel](https://twitter.com/flemouel)), Guanghsuo Chen
 
 ## License
 
