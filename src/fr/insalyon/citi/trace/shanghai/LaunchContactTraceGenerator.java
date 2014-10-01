@@ -1,0 +1,61 @@
+/*
+ * Copyright 2013-2014 Institut National des Sciences Appliquées de Lyon (INSA-Lyon)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * @author Frédéric Le Mouël
+ */
+
+package fr.insalyon.citi.trace.shanghai;
+
+import java.io.File;
+
+/**
+ * Launches the contact trace generator
+ */
+public class LaunchContactTraceGenerator {
+
+    public static void main(String args[]) throws Exception {
+        System.out.println("----------------------");
+        System.out.println("Mobility Trace loading");
+        System.out.println("----------------------");
+        long start = System.currentTimeMillis();
+        Trace trace = Trace.fromDirectory(new File("/Users/flemouel/Documents/Work/Research/MCF_INSA/DYNAMID/Development/shanghai-trace/tests/shanghai-taxi-070218-example"));
+        long stop = System.currentTimeMillis();
+        System.out.println("Trace - loading: " + (stop - start) + "ms");
+        System.out.println("-------------");
+        System.out.println("Trace display");
+        System.out.println("-------------");
+        System.out.println("Trace - current: " + trace);
+        System.out.println("------------------------");
+        System.out.println("Contact Trace generation");
+        System.out.println("------------------------");
+        start = System.currentTimeMillis();
+        trace.generate();
+        stop = System.currentTimeMillis();
+        System.out.println("Trace - generate: " + (stop - start) + "ms");
+        System.out.println("-------------");
+        System.out.println("Trace display");
+        System.out.println("-------------");
+        System.out.println("Trace - current: " + trace);
+        System.out.println("--------------------");
+        System.out.println("Contact Trace saving");
+        System.out.println("--------------------");
+        start = System.currentTimeMillis();
+        trace.dumpContactTrace(new File("/Users/flemouel/Documents/Work/Research/MCF_INSA/DYNAMID/Development/shanghai-trace/tests/shanghai-taxi-070218-contacts-example"));
+        stop = System.currentTimeMillis();
+        System.out.println("Trace - saving: " + (stop - start) + "ms");
+    }
+}
