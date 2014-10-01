@@ -1,4 +1,4 @@
-# Taxi Trace Analysis 
+# Taxi Trace - Contact Analysis 
 
 Multi-thread analysis of taxi GPS trace to extract taxi contacts.
 
