@@ -28,11 +28,15 @@ import java.io.File;
 public class LaunchContactTraceGenerator {
 
     public static void main(String args[]) throws Exception {
+        if (args.length != 2) {
+            System.out.println("usage: java --classpath <your-class-dir> fr.insalyon.citi.trace.shanghai.LaunchContactTraceGenerator <taxi-trace-source-dir> <contact-trace-dest-file>");
+            return;
+        }
         System.out.println("----------------------");
         System.out.println("Mobility Trace loading");
         System.out.println("----------------------");
         long start = System.currentTimeMillis();
-        Trace trace = Trace.fromDirectory(new File("./tests/shanghai-taxi-070218-example"));
+        Trace trace = Trace.fromDirectory(new File(args[0]));
         long stop = System.currentTimeMillis();
         System.out.println("Trace - loading: " + (stop - start) + "ms");
         System.out.println("-------------");
@@ -54,7 +58,7 @@ public class LaunchContactTraceGenerator {
         System.out.println("Contact Trace saving");
         System.out.println("--------------------");
         start = System.currentTimeMillis();
-        trace.dumpContactTrace(new File("./tests/shanghai-taxi-070218-contacts-example"));
+        trace.dumpContactTrace(new File(args[1]));
         stop = System.currentTimeMillis();
         System.out.println("Trace - saving: " + (stop - start) + "ms");
     }
