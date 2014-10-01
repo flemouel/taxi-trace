@@ -1,10 +1,12 @@
-# Taxi Trace Analyzis 
+# Taxi Trace Analysis 
 
 Multi-thread analysis of taxi GPS trace to extract taxi contacts.
 
 ## Usage
 
     java --classpath <your-class-dir> fr.insalyon.citi.trace.shanghai.LaunchContactTraceGenerator <taxi-trace-source-dir> <contact-trace-dest-file>
+
+*Note*: for large trace analysis, JVM initial and max memory allocation parameters are strongly recommended to modify (e.g. `-Xms1024m -Xmx16384m`) 
 
 ## Example
 
