@@ -4,7 +4,7 @@ Multi-thread analysis of taxi GPS trace to extract taxi contacts.
 
 ## Usage
 
-    java --classpath <your-class-dir> fr.insalyon.citi.trace.shanghai.LaunchContactTraceGenerator <taxi-trace-source-dir> <contact-trace-dest-file>
+    java --classpath <your-class-dir> fr.insalyon.citi.trace.taxi.LaunchContactTraceGenerator <taxi-trace-source-dir> <contact-trace-dest-file>
 
 *Note*: for large trace analysis, JVM initial and max memory allocation parameters are strongly recommended to modify (e.g. `-Xms1024m -Xmx16384m`) 
 
@@ -12,7 +12,7 @@ Multi-thread analysis of taxi GPS trace to extract taxi contacts.
 
 Extraction of a tiny part of the Shanghai taxi trace
 
-    java fr.insalyon.citi.trace.shanghai.LaunchContactTraceGenerator ./tests/shanghai-taxi-070218-example ./tests/shanghai-taxi-070218-contacts-example
+    java fr.insalyon.citi.trace.taxi.LaunchContactTraceGenerator ./tests/shanghai-taxi-070218-example ./tests/shanghai-taxi-070218-contacts-example
 
 ## Contact parameters
 

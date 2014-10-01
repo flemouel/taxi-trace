@@ -18,7 +18,7 @@
  * @author Frédéric Le Mouël
  */
 
-package fr.insalyon.citi.trace.shanghai;
+package fr.insalyon.citi.trace.taxi;
 
 import java.io.Serializable;
 

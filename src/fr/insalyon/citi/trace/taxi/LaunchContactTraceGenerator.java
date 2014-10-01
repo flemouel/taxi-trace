@@ -18,7 +18,7 @@
  * @author Frédéric Le Mouël
  */
 
-package fr.insalyon.citi.trace.shanghai;
+package fr.insalyon.citi.trace.taxi;
 
 import java.io.File;
 
@@ -29,7 +29,7 @@ public class LaunchContactTraceGenerator {
 
     public static void main(String args[]) throws Exception {
         if (args.length != 2) {
-            System.out.println("usage: java --classpath <your-class-dir> fr.insalyon.citi.trace.shanghai.LaunchContactTraceGenerator <taxi-trace-source-dir> <contact-trace-dest-file>");
+            System.out.println("usage: java --classpath <your-class-dir> fr.insalyon.citi.trace.taxi.LaunchContactTraceGenerator <taxi-trace-source-dir> <contact-trace-dest-file>");
             return;
         }
         System.out.println("----------------------");
